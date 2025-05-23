@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Builder Form</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <h1><i class="fas fa-id-card-alt"></i> Smart Resume Builder</h1>
+</header>
+
+  <div class="container">
+    <form id="resumeForm" enctype="multipart/form-data" action="https://formspree.io/f/xjkwdzej" method="POST" >
+      <h1>Resume Builder</h1>
+
+      <section>
+	        <!-- Personal Info -->
+        <h2>Personal Information</h2>
+
+
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Nishesh"
+          required
+        />
+        <small>Your given name.</small>
+
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Dhawan"
+          required
+        />
+        <small>Your family name.</small>
+
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+91 123-456-7890"
+          required
+        />
+        <small>Preferred contact phone number.</small>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+        <small>Professional email address.</small>
+
+        <label for="linkedin">LinkedIn ID</label>
+        <input
+          type="text"
+          id="linkedin"
+          name="linkedin"
+          placeholder="linkedin.com/in/yourid"
+        />
+        <small>Full LinkedIn URL or ID.</small>
+
+        <label for="github">GitHub ID</label>
+        <input
+          type="text"
+          id="github"
+          name="github"
+          placeholder="github.com/yourid"
+        />
+        <small>Full GitHub URL or ID.</small>
+      </section>
+      <!-- Education -->
+
+      <section>
+        <h2>Education</h2>
+        <table id="educationTable">
+          <thead>
+            <tr>
+              <th>Degree</th>
+              <th>Institution</th>
+              <th>Year</th>
+              <th>Grade/Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="degree1" placeholder="Degree" /></td>
+              <td>
+                <input type="text" name="institution1" placeholder="Institution" />
+              </td>
+              <td><input type="text" name="year1" placeholder="Year" /></td>
+              <td>
+                <input
+                  type="text"
+                  name="grade1"
+                  placeholder="Grade/Percentage"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" id="addRowBtn">
+          <i class="fas fa-plus-circle"></i> Add Education
+        </button>
+      </section>
+      <!-- Work Experience -->
+
+      <section>
+        <h2>Work Experience</h2>
+        <table id="experienceTable">
+          <thead>
+            <tr>
+              <th>Job Title</th>
+              <th>Company</th>
+              <th>Duration</th>
+              <th>Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" name="jobTitle1" placeholder="Job Title" />
+              </td>
+              <td><input type="text" name="company1" placeholder="Company" /></td>
+              <td><input type="text" name="duration1" placeholder="Duration" /></td>
+              <td>
+                <textarea 
+                  name="responsibilities1"
+                  placeholder="Describe responsibilities"
+                ></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" id="addExpRowBtn">
+          <i class="fas fa-briefcase"></i> Add Experience
+        </button>
+      </section>
+      <!-- Certifications -->
+
+      <section>
+        <h2>Certifications</h2>
+        <table id="certificationTable">
+          <thead>
+            <tr>
+              <th>Certification Name</th>
+              <th>Issuer</th>
+              <th>Year</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" name="certName1" placeholder="Certification Name" />
+              </td>
+              <td><input type="text" name="certIssuer1" placeholder="Issuer" /></td>
+              <td><input type="text" name="certYear1" placeholder="Year" /></td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" id="addCertRowBtn">
+          <i class="fas fa-certificate"></i> Add Certification
+        </button>
+      </section>
+	  
+		<!-- Projects -->
+
+      <section>
+        <h2>Projects</h2>
+        <table id="projectTable">
+          <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="projectTitle1" placeholder="Project Title" /></td>
+              <td><textarea name="projectDesc1" placeholder="Project Description" ></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" id="addProjectRowBtn">Add Project</button>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h2>Skills</h2>
+        <label for="skillInput">Add Skill</label>
+        <input type="text" id="skillInput" placeholder="Enter a skill" />
+        <button type="button" id="addSkillBtn">
+          <i class="fas fa-plus"></i> Add Skill
+        </button>
+        <ul id="skillsList"></ul>
+      </section>
+<!-- Languages -->
+      <section>
+        <h2>Languages</h2>
+        <input type="text" id="languageInput" placeholder="Add a language" />
+        <button type="button" id="addLanguageBtn">Add Language</button>
+        <ul id="languagesList"></ul>
+      </section>
+
+      <!-- Hobbies -->
+      <section>
+        <h2>Hobbies</h2>
+        <label for="hobbyInput">Add Hobby</label>
+        <input type="text" id="hobbyInput" placeholder="Enter a hobby" />
+        <button type="button" id="addHobbyBtn">
+          <i class="fas fa-plus"></i> Add Hobby
+        </button>
+        <ul id="hobbiesList"></ul>
+      </section>
+      <!-- Additional Information -->
+
+      <section>
+        <h2>Additional Information</h2>
+        <label for="additional">Additional Info</label>
+        <textarea
+          id="additional"
+          name="additional"
+          placeholder="Fluent in Spanish, volunteer at Code for Good, etc."
+        ></textarea>
+      </section>
+
+      <button type="submit">
+        <i class="fas fa-file-alt"></i> Generate Resume
+      </button>
+	  
+	  
+<button type="button" id="adminResponseBtn" onclick="window.location.href='admin_response.html'">
+  <i class="fas fa-paper-plane"></i> Add Response to Admin
+</button>
+
+<button type="submit">Preview Resume</button>
+    </form>
+
+    <section id="previewSection" style="display:none; margin-top: 40px;">
+      <h2>Resume Preview (A4 Size)</h2>
+      <div id="resumeContent"></div>
+      <button id="downloadBtn">
+        <i class="fas fa-download"></i> Download PDF
+      </button>
+      <button id="editBtn">
+        <i class="fas fa-edit"></i> Edit Form
+      </button>
+    </section>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+
+<footer class="site-footer">
+  <p>Made with ❤️ for professionals | &copy; 2025 ResumeBuilder</p>
+</footer>
+</body>
+
+</html>
